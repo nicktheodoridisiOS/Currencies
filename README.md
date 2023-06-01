@@ -1,7 +1,7 @@
 # Currency Converter Mobile Application
 
 ## About Application
-Password Generator is a mobile application which built in Xcode using Swift programming language and SwiftUI framework. In this app you have the option to enter the amount of money you want to convert from one type of currency to another.
+Currency Converter is a mobile application which built in Xcode using Swift programming language and SwiftUI framework. In this app you have the option to enter the amount of money you want to convert from one type of currency to another.
 
 ## Screenshots
 
