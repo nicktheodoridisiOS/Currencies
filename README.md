@@ -13,7 +13,7 @@ Password Generator is a mobile application which built in Xcode using Swift prog
 
 ## Run The Application
 
-Coming Soon!
+<a href="https://www.instagram.com/p/Cs8XwkfAhiE/" target="_blank">Here</a>
 
 ## Find Me Also On
 <a href="https://www.instagram.com/nickmadethisone/" target="_blank">Instagram</a> <br>
