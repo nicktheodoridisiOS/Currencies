@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct TabNavigationView: View {
+    
+    @AppStorage("selectedOption") private var selectedOption = ""
+    
+    
     var body: some View {
         TabView{
             CurrencyListView()
                 .tabItem(){
                     Image(systemName: "list.dash")
-                    Text("Currency List")
+                    Text("List")
                 }
-            CurrencyConverterView()
+            ConverterView(selectedOption: $selectedOption)
                 .tabItem(){
                     Image(systemName: "dollarsign")
                     Text("Converter")
+                }
+            SettingsView(selectedOption: $selectedOption)
+                .tabItem(){
+                    Image(systemName: "gear")
+                    Text("Settings")
                 }
         }
         .tint(.green)

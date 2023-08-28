@@ -15,6 +15,7 @@ struct CurrencyListView: View {
     @State private var scaleAmount: CGFloat = 0
     @State var isSorted: Bool = false
     
+    
     var filteredConvertionData: [Currency] {
         guard !searchText.isEmpty else{
             return viewModel.convertionData.sorted(by: {$0.currencyName < $1.currencyName})
@@ -49,33 +50,38 @@ struct CurrencyListView: View {
                     else{
                         ScrollView(showsIndicators: false){
                             VStack{
-                                Menu(content: {
-                                    ForEach(currencies, id: \.self){ name in
-                                        Button {
-                                            viewModel.updateData(base: name)
+                                HStack{
+                                    Menu(content: {
+                                        ForEach(currencies, id: \.self){ name in
+                                            Button {
+                                                viewModel.updateData(base: name)
+                                                
+                                            } label: {
+                                                Text("\(getFlag(currency:name)) \(name)")
+                                                    .fontWeight(.semibold)
+                                                    .foregroundColor(.primary)
+                                            }
                                             
-                                        } label: {
-                                            Text("\(getFlag(currency:name)) \(name)")
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(.primary)
                                         }
                                         
-                                    }
-                                    
-                                }){
-                                    HStack(){
+                                    }){
+                                        
                                         Text("\(getFlag(currency:viewModel.base)) \(viewModel.base)")
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(.primary)
                                             .background{
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .frame(width: 110,height: 40)
                                                     .foregroundColor(.secondary.opacity(0.1))
                                             }
+                                        
+                                        
                                     }
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.primary)
+                                    Spacer()
                                 }
                             }
-                            .padding()
+                            .padding(.top,10)
+                            .padding(.horizontal,40)
                             
                             LazyVGrid(columns: columns){
                                 
@@ -86,7 +92,7 @@ struct CurrencyListView: View {
                                         VStack(alignment: .center){
                                             Text(rate.currencyName)
                                                 .fontWeight(.bold)
-                                            Text("\(rate.currencyValue)")
+                                            Text("\(rate.currencyValue,specifier: "%.2f")")
                                                 .font(.caption)
                                         }
                                     }
@@ -113,7 +119,7 @@ struct CurrencyListView: View {
                     }
                 }
                 .searchable(text: $searchText)
-                .navigationTitle("Currency List")
+                .navigationTitle("List")
             }
         }
         .tint(Color.green)
