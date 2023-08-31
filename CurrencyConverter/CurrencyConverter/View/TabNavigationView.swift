@@ -10,6 +10,7 @@ import SwiftUI
 struct TabNavigationView: View {
     
     @AppStorage("selectedOption") private var selectedOption = ""
+    @AppStorage("isDarkModeEnabled") private var isDarkModeEnabled = false
     
     
     var body: some View {
@@ -31,6 +32,8 @@ struct TabNavigationView: View {
                 }
         }
         .tint(.green)
+        .environment(\.colorScheme, isDarkModeEnabled ? .dark : .light)
+
     }
 }
 

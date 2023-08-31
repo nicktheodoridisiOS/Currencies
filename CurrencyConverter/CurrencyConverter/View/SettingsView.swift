@@ -14,8 +14,9 @@ struct SettingsView: View {
     @StateObject var viewModel = FetchData()
     
     @Binding var selectedOption: String
+    @AppStorage("isDarkModeEnabled") private var isDarkModeEnabled = false
     
-
+    
     var filteredConvertionData: [Currency] {
         return viewModel.convertionData.sorted(by: {$0.currencyName < $1.currencyName})
     }
@@ -31,6 +32,11 @@ struct SettingsView: View {
                             }
                         }
                     }
+                    Section(header: Text("APPEARANCE")){
+                        Toggle("Dark Mode" , isOn: $isDarkModeEnabled)
+                    }
+                    
+                    
                 }
             }.navigationTitle("Settings")
         }
