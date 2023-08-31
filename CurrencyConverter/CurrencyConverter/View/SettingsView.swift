@@ -24,20 +24,41 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack{
             VStack{
-                Form{
-                    Section(header: Text("GENERAL")){
-                        Picker("Currency Base", selection: $selectedOption) {
-                            ForEach(filteredConvertionData) { currency in
-                                Text("\(getFlag(currency: currency.currencyName)) \(currency.currencyName)").tag(currency.currencyName)
+                List{
+                    Section(header: Text("GENERAL"),footer: Text("Changing the currency base to the desired one will automatically update the base in the currency converter as well.")){
+                        HStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 7)
+                                    .frame(width: 30,height: 30)
+                                    .foregroundColor(.green)
+                                Image(systemName: "globe")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.white)
+                            }
+                            Picker("Base", selection: $selectedOption) {
+                                ForEach(filteredConvertionData) { currency in
+                                    Text("\(getFlag(currency: currency.currencyName)) \(currency.currencyName)").tag(currency.currencyName)
+                                }
                             }
                         }
                     }
-                    Section(header: Text("APPEARANCE")){
-                        Toggle("Dark Mode" , isOn: $isDarkModeEnabled)
+                    Section(header: Text("DISPLAY"),footer: Text("Enabling dark mode is going to change the entire appearance of the application, beyond your device's general settings. ")){
+                        HStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 7)
+                                    .frame(width: 30,height: 30)
+                                    .foregroundColor(.purple)
+                                Image(systemName: "moon.fill")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.white)
+                            }
+                            Toggle("Dark Mode" , isOn: $isDarkModeEnabled)
+                        }
                     }
                     
                     
                 }
+                .listStyle(.insetGrouped)
             }.navigationTitle("Settings")
         }
     }

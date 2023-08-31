@@ -119,7 +119,7 @@ struct CurrencyListView: View {
                     }
                 }
                 .searchable(text: $searchText)
-                .navigationTitle("List")
+                .navigationTitle("Currency List")
             }
         }
         .tint(Color.green)

@@ -36,7 +36,7 @@ struct ConverterView: View {
                         })
                     }
                     
-                    Section(header: Text("REGION")){
+                    Section(header: Text("FILTERS")){
                         Picker("From", selection: $selectedOption) {
                             ForEach(filteredConvertionData) { currency in
                                 Text("\(getFlag(currency: currency.currencyName)) \(currency.currencyName)").tag(currency.currencyName)
