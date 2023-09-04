@@ -26,15 +26,25 @@ struct SettingsView: View {
             VStack{
                 List{
                     Section(header: Text("GENERAL"),footer: Text("Changing the currency base to the desired one will automatically update the base in the currency converter as well.")){
-                        HStack{
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 7)
-                                    .frame(width: 30,height: 30)
-                                    .foregroundColor(.green)
-                                Image(systemName: "globe")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.white)
-                            }
+                        HStack(spacing: 15){
+                            
+                            Image(systemName: "globe")
+                                .font(.title3)
+                                .overlay{
+                                    LinearGradient(
+                                        gradient: Gradient(colors:[
+                                            .green.opacity(0.5),
+                                            .green]),
+                                        startPoint:
+                                                .topTrailing,
+                                        endPoint:
+                                                .bottomLeading)
+                                }
+                                .mask{
+                                    Image(systemName: "globe")
+                                        .font(.title3)
+                                }
+                            
                             Picker("Base", selection: $selectedOption) {
                                 ForEach(filteredConvertionData) { currency in
                                     Text("\(getFlag(currency: currency.currencyName)) \(currency.currencyName)").tag(currency.currencyName)
@@ -42,16 +52,25 @@ struct SettingsView: View {
                             }
                         }
                     }
+                    
                     Section(header: Text("DISPLAY"),footer: Text("Enabling dark mode is going to change the entire appearance of the application, beyond your device's general settings. ")){
-                        HStack{
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 7)
-                                    .frame(width: 30,height: 30)
-                                    .foregroundColor(.purple)
-                                Image(systemName: "moon.fill")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.white)
-                            }
+                        HStack(spacing: 15){
+                            Image(systemName: "moon")
+                                .font(.title3)
+                                .overlay{
+                                    LinearGradient(
+                                        gradient: Gradient(colors:[
+                                            .purple.opacity(0.5),
+                                            .purple]),
+                                        startPoint:
+                                                .topTrailing,
+                                        endPoint:
+                                            .bottomLeading)
+                                }
+                                .mask{
+                                    Image(systemName: "moon")
+                                        .font(.title3)
+                                }
                             Toggle("Dark Mode" , isOn: $isDarkModeEnabled)
                         }
                     }
