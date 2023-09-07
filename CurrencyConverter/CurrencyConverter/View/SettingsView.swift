@@ -33,7 +33,7 @@ struct SettingsView: View {
                                 .overlay{
                                     LinearGradient(
                                         gradient: Gradient(colors:[
-                                            .green.opacity(0.5),
+                                            .yellow,
                                             .green]),
                                         startPoint:
                                                 .topTrailing,
@@ -60,7 +60,7 @@ struct SettingsView: View {
                                 .overlay{
                                     LinearGradient(
                                         gradient: Gradient(colors:[
-                                            .purple.opacity(0.5),
+                                            .pink,
                                             .purple]),
                                         startPoint:
                                                 .topTrailing,
