@@ -27,7 +27,7 @@ class ExchangeRatesViewModel: ObservableObject{
                 let exchangeRates = try JSONDecoder().decode(ExchangeRates.self, from: data)
                 DispatchQueue.main.async {
                     self.exchangeRates  = exchangeRates.conversion_rates
-                    print(exchangeRates)
+                    print("New Fetch")
                 }
             } catch {
                 print(error)
