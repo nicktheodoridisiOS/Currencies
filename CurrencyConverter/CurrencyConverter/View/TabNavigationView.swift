@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabNavigationView: View {
     
-    @AppStorage("selectedOption") private var selectedOption = ""
+    @AppStorage("selectedCurrencyBase") var selectedCurrencyCode: String = "EUR"
     @AppStorage("isDarkModeEnabled") private var isDarkModeEnabled = false
     
     
@@ -20,7 +20,12 @@ struct TabNavigationView: View {
                     Image(systemName: "globe")
                     Text("Exchanges")
                 }
-            SettingsView(selectedOption: $selectedOption)
+            ConverterView()
+                .tabItem(){
+                    Image(systemName: "arrow.triangle.2.circlepath")
+                    Text("Converter")
+                }
+            SettingsView()
                 .tabItem(){
                     Image(systemName: "gear")
                     Text("Settings")

@@ -20,6 +20,9 @@
 		69D994102A1A810A00D1DE7A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D9940F2A1A810A00D1DE7A /* Utilities.swift */; };
 		69EA8C512BD6C4A3001F4F3B /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EA8C502BD6C4A3001F4F3B /* ExchangeRates.swift */; };
 		69EA8C532BD6C50E001F4F3B /* ExchangeRatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EA8C522BD6C50E001F4F3B /* ExchangeRatesViewModel.swift */; };
+		69EA8C562BD6D81E001F4F3B /* CurrencyCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EA8C552BD6D81E001F4F3B /* CurrencyCodes.swift */; };
+		69EA8C5C2BD700F3001F4F3B /* PairConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EA8C5B2BD700F3001F4F3B /* PairConversion.swift */; };
+		69EA8C5E2BD70150001F4F3B /* PairConversionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EA8C5D2BD70150001F4F3B /* PairConversionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		69D9940F2A1A810A00D1DE7A /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		69EA8C502BD6C4A3001F4F3B /* ExchangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
 		69EA8C522BD6C50E001F4F3B /* ExchangeRatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesViewModel.swift; sourceTree = "<group>"; };
+		69EA8C552BD6D81E001F4F3B /* CurrencyCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCodes.swift; sourceTree = "<group>"; };
+		69EA8C5B2BD700F3001F4F3B /* PairConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairConversion.swift; sourceTree = "<group>"; };
+		69EA8C5D2BD70150001F4F3B /* PairConversionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairConversionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 		690382B52A1A5757008B6DBD /* CurrencyConverter */ = {
 			isa = PBXGroup;
 			children = (
+				69EA8C542BD6D811001F4F3B /* New Group */,
 				692A88BD2A99DE5400124E19 /* Model */,
 				692A88BF2A99DE6700124E19 /* View */,
 				692A88BE2A99DE5F00124E19 /* ViewModel */,
@@ -146,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				69EA8C502BD6C4A3001F4F3B /* ExchangeRates.swift */,
+				69EA8C5B2BD700F3001F4F3B /* PairConversion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				69EA8C522BD6C50E001F4F3B /* ExchangeRatesViewModel.swift */,
+				69EA8C5D2BD70150001F4F3B /* PairConversionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -167,6 +176,14 @@
 				6996BDBC2A9C949100C002B9 /* SettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		69EA8C542BD6D811001F4F3B /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				69EA8C552BD6D81E001F4F3B /* CurrencyCodes.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +250,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					690382B22A1A5757008B6DBD = {
 						CreatedOnToolsVersion = 14.2;
@@ -302,10 +319,13 @@
 				69D994102A1A810A00D1DE7A /* Utilities.swift in Sources */,
 				69EA8C512BD6C4A3001F4F3B /* ExchangeRates.swift in Sources */,
 				692A88C72A99E74200124E19 /* TabNavigationView.swift in Sources */,
+				69EA8C562BD6D81E001F4F3B /* CurrencyCodes.swift in Sources */,
 				692A88C12A99E00B00124E19 /* CurrencyListView.swift in Sources */,
+				69EA8C5C2BD700F3001F4F3B /* PairConversion.swift in Sources */,
 				69ABD59F2A9BA502006EF98F /* ConverterView.swift in Sources */,
 				69EA8C532BD6C50E001F4F3B /* ExchangeRatesViewModel.swift in Sources */,
 				690382B72A1A5757008B6DBD /* CurrencyConverterApp.swift in Sources */,
+				69EA8C5E2BD70150001F4F3B /* PairConversionViewModel.swift in Sources */,
 				6996BDBD2A9C949100C002B9 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -379,6 +400,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -393,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -407,6 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -439,6 +462,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -447,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -523,7 +547,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Nick-Theodoridis.CurrencyConverterTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -542,7 +566,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Nick-Theodoridis.CurrencyConverterTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";

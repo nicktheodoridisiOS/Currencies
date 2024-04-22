@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExchangesView: View {
     
+    @AppStorage("selectedCurrencyBase") var selectedCurrencyCode: String = "EUR"
+    
     @StateObject var exchangeRatesViewModel = ExchangeRatesViewModel()
     
     @State private var searchText: String = ""
@@ -17,7 +19,9 @@ struct ExchangesView: View {
     @State var isSorted: Bool = false
     
     @State private var opacityView: CGFloat = 0
-
+    @State private var lastFetchedCurrency: String = ""
+    @State private var isLoading: Bool = false
+    
     
     let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -28,7 +32,7 @@ struct ExchangesView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if exchangeRatesViewModel.exchangeRates.isEmpty {
+                if isLoading || exchangeRatesViewModel.exchangeRates.isEmpty{
                     ProgressView()
                 } else {
                     ScrollView(showsIndicators: false) {
@@ -51,11 +55,16 @@ struct ExchangesView: View {
                     }
                 }
             }
-            .task {
-                await exchangeRatesViewModel.fetchExchangeRatesList(base: "EUR")
-            }
             .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search Currency Code")
             .navigationTitle("Exchanges")
+        }
+        .task {
+            if exchangeRatesViewModel.exchangeRates.isEmpty || lastFetchedCurrency != selectedCurrencyCode {
+                isLoading = true
+                lastFetchedCurrency = selectedCurrencyCode
+                await exchangeRatesViewModel.fetchExchangeRatesList(base: selectedCurrencyCode)
+                isLoading = false
+            }
         }
         .tint(Color.green)
     }
@@ -69,7 +78,7 @@ struct ExchangesView: View {
                 pair.key.contains(searchText.uppercased())
             }
         }
-
+        
         return results.sorted { (pair1: (key: String, value: Double), pair2: (key: String, value: Double)) -> Bool in
             return pair1.key < pair2.key
         }
@@ -91,7 +100,7 @@ struct ExchangesView: View {
 struct CurrencyRateView: View {
     var currency: String
     var rate: Double
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             VStack{

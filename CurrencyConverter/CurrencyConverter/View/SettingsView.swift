@@ -9,91 +9,75 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @Binding var selectedOption: String
+    @AppStorage("selectedCurrencyBase") var selectedCurrencyCode: String = "EUR"
     @AppStorage("isDarkModeEnabled") private var isDarkModeEnabled = false
     
+    let currencyCodes = Array(CurrencyCodes.conversionRates.keys).sorted()
+
     
     var body: some View {
-        NavigationStack{
-            VStack{
-                List{
-//                    Section(header: Text("GENERAL"),footer: Text("Changing the currency base to the desired one will automatically update the base in the currency converter as well.")){
-//                        HStack(spacing: 15){
-//                            
-//                            Image(systemName: "globe")
-//                                .font(.title3)
-//                                .overlay{
-//                                    LinearGradient(
-//                                        gradient: Gradient(colors:[
-//                                            .yellow,
-//                                            .green]),
-//                                        startPoint:
-//                                                .topTrailing,
-//                                        endPoint:
-//                                                .bottomLeading)
-//                                }
-//                                .mask{
-//                                    Image(systemName: "globe")
-//                                        .font(.title3)
-//                                }
-//                            
-//                            Picker("Base", selection: $selectedOption) {
-//                                ForEach(filteredConvertionData) { currency in
-//                                    Text("\(getFlag(currency: currency.currencyName)) \(currency.currencyName)").tag(currency.currencyName)
-//                                }
-//                            }
-//                        }
-//                    }
-                    
-                    Section(header: Text("DISPLAY"),footer: Text("Enabling dark mode is going to change the entire appearance of the application, beyond your device's general settings. ")){
-                        HStack(spacing: 15){
-                            Image(systemName: "moon")
+        NavigationStack {
+            VStack {
+                List {
+                    Section(header: Text("GENERAL"), footer: Text("Changing the currency code will update the base in the application.")) {
+                        HStack(spacing: 15) {
+                            Image(systemName: "globe")
                                 .font(.title3)
-                                .overlay{
+                                .overlay {
                                     LinearGradient(
-                                        gradient: Gradient(colors:[
-                                            .pink,
-                                            .purple]),
-                                        startPoint:
-                                                .topTrailing,
-                                        endPoint:
-                                            .bottomLeading)
+                                        gradient: Gradient(colors: [.yellow, .green]),
+                                        startPoint: .topTrailing,
+                                        endPoint: .bottomLeading)
                                 }
-                                .mask{
-                                    Image(systemName: "moon")
+                                .mask {
+                                    Image(systemName: "globe")
                                         .font(.title3)
                                 }
-                            Toggle("Dark Mode" , isOn: $isDarkModeEnabled)
+                            
+                            Picker("Currency Code", selection: $selectedCurrencyCode) {
+                                ForEach(currencyCodes, id: \.self) { currencyCode in
+                                    Text("\(getFlag(currency: currencyCode)) \(currencyCode)").tag(currencyCode).foregroundStyle(.gray)
+                                }
+                            }
+                            .tint(.secondary)
+                            .pickerStyle(MenuPickerStyle())
                         }
                     }
                     
-                    
+                    Section(header: Text("DISPLAY"), footer: Text("Enabling dark mode changes the app's appearance beyond your device settings.")) {
+                        HStack(spacing: 15) {
+                            Image(systemName: "moon")
+                                .font(.title3)
+                                .overlay {
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [.pink, .purple]),
+                                        startPoint: .topTrailing,
+                                        endPoint: .bottomLeading)
+                                }
+                                .mask {
+                                    Image(systemName: "moon")
+                                        .font(.title3)
+                                }
+                            Toggle("Dark Mode", isOn: $isDarkModeEnabled)
+                        }
+                    }
                 }
-                .listStyle(.insetGrouped)
-            }.navigationTitle("Settings")
+                .listStyle(InsetGroupedListStyle())
+            }
+            .navigationTitle("Settings")
         }
     }
     
-    func getFlag(currency: String) -> String{
-        
+    func getFlag(currency: String) -> String {
         let base = 127397
-        
         var code = currency
         code.removeLast()
         
         var scalar = String.UnicodeScalarView()
-        
-        for i in code.utf16{
+        for i in code.utf16 {
             scalar.append(UnicodeScalar(base + Int(i))!)
         }
         
         return String(scalar)
     }
 }
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView(selectedOption: .constant("EUR"))
-    }
-}
-
