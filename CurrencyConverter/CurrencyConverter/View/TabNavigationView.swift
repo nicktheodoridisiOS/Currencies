@@ -15,15 +15,10 @@ struct TabNavigationView: View {
     
     var body: some View {
         TabView{
-            CurrencyListView()
+            ExchangesView()
                 .tabItem(){
-                    Image(systemName: "list.dash")
-                    Text("List")
-                }
-            ConverterView(selectedOption: $selectedOption)
-                .tabItem(){
-                    Image(systemName: "dollarsign")
-                    Text("Converter")
+                    Image(systemName: "globe")
+                    Text("Exchanges")
                 }
             SettingsView(selectedOption: $selectedOption)
                 .tabItem(){

@@ -7,22 +7,17 @@
 
 import SwiftUI
 
-struct CurrencyListView: View {
+struct ExchangesView: View {
     
-    @StateObject var viewModel = FetchData()
+    @StateObject var exchangeRatesViewModel = ExchangeRatesViewModel()
+    
     @State private var searchText: String = ""
     
     @State private var scaleAmount: CGFloat = 0
     @State var isSorted: Bool = false
     
-    
-    var filteredConvertionData: [Currency] {
-        guard !searchText.isEmpty else{
-            return viewModel.convertionData.sorted(by: {$0.currencyName < $1.currencyName})
-            
-        }
-        return viewModel.convertionData.filter {$0.currencyName.localizedStandardContains(searchText)}
-    }
+    @State private var opacityView: CGFloat = 0
+
     
     let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -30,120 +25,102 @@ struct CurrencyListView: View {
         GridItem(.flexible())
     ]
     
-    
     var body: some View {
-        NavigationStack{
-            GeometryReader { geometry in
-                VStack(alignment: .center){
-                    if viewModel.convertionData.isEmpty{
-                        VStack{
-                            HStack(){
-                                Spacer()
-                                ProgressView()
-                                Spacer()
+        NavigationStack {
+            VStack {
+                if exchangeRatesViewModel.exchangeRates.isEmpty {
+                    ProgressView()
+                } else {
+                    ScrollView(showsIndicators: false) {
+                        VStack(alignment:.leading){
+                            Text("Browse Currency Codes").font(.title3).bold()
+                            LazyVGrid(columns: columns, spacing: 10) {
+                                ForEach(searchResults, id: \.key) { key, value in
+                                    CurrencyRateView(currency: key, rate: value)
+                                }
                             }
-                            .padding(.top)
-                            Spacer()
-                            
                         }
+                        .padding(.horizontal)
+                        .padding(.bottom)
                     }
-                    else{
-                        ScrollView(showsIndicators: false){
-                            VStack{
-                                HStack{
-                                    Menu(content: {
-                                        ForEach(currencies, id: \.self){ name in
-                                            Button {
-                                                viewModel.updateData(base: name)
-                                                
-                                            } label: {
-                                                Text("\(getFlag(currency:name)) \(name)")
-                                                    .fontWeight(.semibold)
-                                                    .foregroundColor(.primary)
-                                            }
-                                            
-                                        }
-                                        
-                                    }){
-                                        
-                                        Text("\(getFlag(currency:viewModel.base)) \(viewModel.base)")
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(.primary)
-                                            .background{
-                                                RoundedRectangle(cornerRadius: 10)
-                                                    .frame(width: 110,height: 40)
-                                                    .foregroundColor(.secondary.opacity(0.1))
-                                            }
-                                        
-                                        
-                                    }
-                                    Spacer()
-                                }
-                            }
-                            .padding(.top,10)
-                            .padding(.horizontal,40)
-                            
-                            LazyVGrid(columns: columns){
-                                
-                                ForEach(filteredConvertionData){ rate in
-                                    VStack(spacing:5){
-                                        Text(getFlag(currency:rate.currencyName))
-                                            .font(.largeTitle)
-                                        VStack(alignment: .center){
-                                            Text(rate.currencyName)
-                                                .fontWeight(.bold)
-                                            Text("\(rate.currencyValue,specifier: "%.2f")")
-                                                .font(.caption)
-                                        }
-                                    }
-                                    .background{
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .foregroundColor(Color.gray.opacity(0.1))
-                                            .frame(width: geometry.size.width/3 - 20, height: geometry.size.width/3 - 20 )
-                                    }
-                                    .scaleEffect(1)
-                                    .onAppear{
-                                        withAnimation(.spring()){
-                                            scaleAmount = 1
-                                        }
-                                    }
-                                    
-                                }
-                                .padding(.top,30)
-                                
-                            }
-                            .padding(.horizontal)
-                            
-                            
+                    .opacity(opacityView)
+                    .onAppear{
+                        withAnimation(.smooth){
+                            opacityView = 1
                         }
                     }
                 }
-                .searchable(text: $searchText)
-                .navigationTitle("Currency List")
             }
+            .task {
+                await exchangeRatesViewModel.fetchExchangeRatesList(base: "EUR")
+            }
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search Currency Code")
+            .navigationTitle("Exchanges")
         }
         .tint(Color.green)
     }
     
-    func getFlag(currency: String) -> String{
-        
+    var searchResults: [(key: String, value: Double)] {
+        let results: [(String, Double)]
+        if searchText.isEmpty {
+            results = Array(exchangeRatesViewModel.exchangeRates)
+        } else {
+            results = exchangeRatesViewModel.exchangeRates.filter { pair in
+                pair.key.contains(searchText.uppercased())
+            }
+        }
+
+        return results.sorted { (pair1: (key: String, value: Double), pair2: (key: String, value: Double)) -> Bool in
+            return pair1.key < pair2.key
+        }
+    }
+    
+    func getFlag(currency: String) -> String {
         let base = 127397
-        
         var code = currency
         code.removeLast()
         
         var scalar = String.UnicodeScalarView()
-        
-        for i in code.utf16{
+        for i in code.utf16 {
             scalar.append(UnicodeScalar(base + Int(i))!)
         }
-        
         return String(scalar)
     }
 }
 
-struct CurrencyListView_Previews: PreviewProvider {
-    static var previews: some View {
-        CurrencyListView()
+struct CurrencyRateView: View {
+    var currency: String
+    var rate: Double
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            VStack{
+                Text(getFlag(currency: currency)).font(.largeTitle)
+                Spacer()
+                Text(String(format: "%.2f", rate))
+                Text(currency).font(.caption).foregroundStyle(.gray)
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
+        }
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(8)
+        .overlay{
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(.gray.opacity(0.24),lineWidth:1)
+        }
+    }
+    
+    func getFlag(currency: String) -> String {
+        let base = 127397
+        var code = currency
+        code.removeLast()
+        
+        var scalar = String.UnicodeScalarView()
+        for i in code.utf16 {
+            scalar.append(UnicodeScalar(base + Int(i))!)
+        }
+        return String(scalar)
     }
 }
+
