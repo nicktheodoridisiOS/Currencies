@@ -62,7 +62,7 @@ struct ExchangesView: View {
             if exchangeRatesViewModel.exchangeRates.isEmpty || lastFetchedCurrency != selectedCurrencyCode {
                 isLoading = true
                 lastFetchedCurrency = selectedCurrencyCode
-                await exchangeRatesViewModel.fetchExchangeRatesList(base: selectedCurrencyCode)
+//                await exchangeRatesViewModel.fetchExchangeRatesList(base: selectedCurrencyCode)
                 isLoading = false
             }
         }

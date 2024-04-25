@@ -11,7 +11,7 @@ class PairConversionViewModel: ObservableObject{
     
     @Published var pairConversion: [PairConversion] = []
     
-    func fetchExchangeRatesList(base: String,target: String) async{
+    func fetchPairConversion(base: String,target: String) async{
         try? await Task.sleep(nanoseconds: 1_000_000_000)
         
         guard let url = URL(string: "https://v6.exchangerate-api.com/v6/b1b71f168dab8cfbff14f4d3/pair/\(base)/\(target)") else {
@@ -26,7 +26,7 @@ class PairConversionViewModel: ObservableObject{
             do {
                 let pairConversions = try JSONDecoder().decode(PairConversion.self, from: data)
                 DispatchQueue.main.async {
-                    self.pairConversion = self.pairConversion
+                    self.pairConversion = [pairConversions]
                 }
             } catch {
                 print(error)

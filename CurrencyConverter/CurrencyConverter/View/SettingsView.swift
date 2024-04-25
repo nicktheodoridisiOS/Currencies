@@ -36,7 +36,7 @@ struct SettingsView: View {
                             
                             Picker("Currency Code", selection: $selectedCurrencyCode) {
                                 ForEach(currencyCodes, id: \.self) { currencyCode in
-                                    Text("\(getFlag(currency: currencyCode)) \(currencyCode)").tag(currencyCode).foregroundStyle(.gray)
+                                    Text("\(currencyCode)").tag(currencyCode).foregroundStyle(.gray)
                                 }
                             }
                             .tint(.secondary)
