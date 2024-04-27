@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct ConverterView: View {
     
     @AppStorage("selectedBase") var selectedBase: String = "AED"
     @AppStorage("selectedTarget") var selectedTarget: String = "AFN"
+    @AppStorage("lastConvertedAmount") var lastConvertedAmount: String = ""
+    @AppStorage("lastAmount") var lastAmount: String = ""
     
     @StateObject var pairConversionViewModel = PairConversionViewModel()
     
     @State private var amount: String = ""
-    @State private var convertedAmount: String = "" // To store the converted amount
+    @State private var convertedAmount: String = ""
     
     let currencyCodes = Array(CurrencyCodes.conversionRates.keys).sorted()
     
@@ -26,11 +26,11 @@ struct ConverterView: View {
             Form {
                 Section(header: Text("CONVERT")) {
                     TextField("Enter amount", text: $amount)
-                        .keyboardType(.decimalPad) // Ensures that only numbers can be entered
+                        .keyboardType(.decimalPad)
                     
                     Picker("From", selection: $selectedBase) {
                         ForEach(currencyCodes, id: \.self) { currencyCode in
-                            Text("\(currencyCode)").tag(currencyCode).foregroundStyle(.gray)
+                            Text("\(currencyCode)").tag(currencyCode).foregroundStyle(.secondary)
                         }
                     }
                     .tint(.secondary)
@@ -38,21 +38,34 @@ struct ConverterView: View {
                     
                     Picker("To", selection: $selectedTarget) {
                         ForEach(currencyCodes, id: \.self) { currencyCode in
-                            Text("\(currencyCode)").tag(currencyCode).foregroundStyle(.gray)
+                            Text("\(currencyCode)").tag(currencyCode).foregroundStyle(.secondary)
                         }
                     }
                     .tint(.secondary)
                     .pickerStyle(MenuPickerStyle())
-                    
-                    Button("Convert") {
-                        convertCurrency()
+                }
+                
+                Section(header: Text("CONVERTION")){
+                    Text("\(convertedAmount)")
+                }
+                
+                if !lastConvertedAmount.isEmpty{
+                    Section(header: Text("LAST CONVERTION")){
+                        if !lastConvertedAmount.isEmpty {
+                            HStack{
+                                Text("\(lastAmount) \(selectedBase)")
+                                Image(systemName: "arrow.left.arrow.right").font(.caption).foregroundStyle(.secondary)
+                                Text("\(lastConvertedAmount)")
+                            }
+                        }
                     }
-                    
-                    Text("Converted Amount: \(convertedAmount)")
-                        .bold()
                 }
                 
             }
+            .navigationTitle("Converter")
+            .onChange(of: selectedBase) { convertCurrency() }
+            .onChange(of: selectedTarget) { convertCurrency() }
+            .onChange(of: amount) { convertCurrency() }
             .task {
                 await pairConversionViewModel.fetchPairConversion(base: selectedBase, target: selectedTarget)
             }
@@ -62,11 +75,19 @@ struct ConverterView: View {
     func convertCurrency() {
         guard let amountToConvert = Double(amount),
               let conversionRate = pairConversionViewModel.pairConversion.first?.conversion_rate else {
-            convertedAmount = "Invalid input or rate"
+            convertedAmount = "Amount not inserted"
+            lastConvertedAmount = "\(selectedTarget)"
             return
         }
         
         let result = amountToConvert * conversionRate
-        convertedAmount = String(format: "%.2f", result)
+        if amount != "" {
+            lastAmount  = amount
+        }
+        else{
+            lastAmount = ""
+        }
+        convertedAmount = String(format: "%.2f \(selectedTarget)", result)
+        lastConvertedAmount = "\(convertedAmount)"
     }
 }
