@@ -1,22 +1,29 @@
-# Currency Converter Mobile Application
+### Currencies Mobile Application
 
-## About Application
-Currency Converter is a mobile application which built in Xcode using Swift programming language and SwiftUI framework. In this app you have the option to enter the amount of money you want to convert from one type of currency to another.
+### About Application
+Currencies is an iOS mobile app developed with Swift and SwiftUI in Xcode. Simply enter an amount, choose your currencies, and get real-time conversion rates at your fingertips. Ideal for travelers and finance enthusiasts alike, this app ensures you have the latest currency information quickly and easily.
 
-## Screenshots
+### Browse Exchange Rates
+### Convert Your Amount
+### Choose Your Currency Base
+### Display Preferences
 
-<div>
-  <img height= 300em src= "https://github.com/nicktheodoridisiOS/CurrencyConverter/assets/122683142/e39f12d8-7351-4920-ba97-956c6137ad52">
-  <img hspace= 5 height= 300em src= "https://github.com/nicktheodoridisiOS/CurrencyConverter/assets/122683142/da69255f-862a-4684-bd34-6315776916c6">
-  <img hspace= 5 height= 300em src= "https://github.com/nicktheodoridisiOS/CurrencyConverter/assets/122683142/28a4b10d-cede-4478-a1bc-9cb57c069468">
-</div>
+### Contact
 
-## Run The Application
+I'm always open to questions, suggestions and comments. If you have any questions or need assistance, feel free to contact me at [nicktheodoridiscontact@gmail.com](mailto:nicktheodoridiscontact@gmail.com) or through my GitHub account.
 
-<a href="https://www.instagram.com/p/Cs8XwkfAhiE/" target="_blank">Here</a>
+### Socials
 
-## Find Me Also On
-<a href="https://www.instagram.com/nickmadethisone/" target="_blank">Instagram</a> <br>
-<a href="https://www.linkedin.com/in/nick-theodoridis-75097a266/" target="_blank">LinkedIn</a> <br>
-<a href="https://twitter.com/nickiOSDev" target="_blank">Twitter</a>
+Follow me on social media for the latest news and updates:
+
+- Twitter: [nickiOSDev](https://twitter.com/nickiOSDev)
+- Instagram: [nickmadethisone](https://www.instagram.com/nickmadethisone/)
+- LinkedIn: [Nikolaos Theodoridis](https://www.linkedin.com/in/nikolaostheodoridis/)
+
+### License
+This project is distributed under the [Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
+
+This means you can use, modify and share this work under the following conditions:
+- You must attribute the original creator (attribution).
+- You may not use this work for commercial purposes (non-commercial use).
 
