@@ -25,9 +25,6 @@ struct ConverterView: View {
         NavigationStack {
             Form {
                 Section(header: Text("CONVERT")) {
-                    TextField("Enter amount", text: $amount)
-                        .keyboardType(.decimalPad)
-                    
                     Picker("From", selection: $selectedBase) {
                         ForEach(currencyCodes, id: \.self) { currencyCode in
                             Text("\(currencyCode)").tag(currencyCode).foregroundStyle(.secondary)
@@ -45,8 +42,13 @@ struct ConverterView: View {
                     .pickerStyle(MenuPickerStyle())
                 }
                 
+                
+                
                 Section(header: Text("CONVERTION")){
-                    Text("\(convertedAmount)")
+                    TextField("0 \(selectedBase)", text: $amount)
+                        .keyboardType(.decimalPad)
+                    Text(amount == "" ? "0 \(selectedTarget)"  : "\(convertedAmount)")
+                        .foregroundStyle(amount == "" ? .secondary : .primary )
                 }
                 
                 if !lastConvertedAmount.isEmpty{
@@ -73,21 +75,17 @@ struct ConverterView: View {
     }
     
     func convertCurrency() {
-        guard let amountToConvert = Double(amount),
+        guard !amount.isEmpty, let amountToConvert = Double(amount),
               let conversionRate = pairConversionViewModel.pairConversion.first?.conversion_rate else {
-            convertedAmount = "Amount not inserted"
-            lastConvertedAmount = "\(selectedTarget)"
+            convertedAmount = "Enter a valid amount"
+            lastConvertedAmount = ""
             return
         }
         
         let result = amountToConvert * conversionRate
-        if amount != "" {
-            lastAmount  = amount
-        }
-        else{
-            lastAmount = ""
-        }
         convertedAmount = String(format: "%.2f \(selectedTarget)", result)
+        
+        lastAmount = amount
         lastConvertedAmount = "\(convertedAmount)"
     }
 }
