@@ -1,22 +1,21 @@
 ### Currencies Mobile Application
-<img width="1200" alt="cover" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/324c637d-2c61-4052-87a7-ed4bc02396f4">
+<img width="1200" alt="cover" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/f887d14d-8fe6-49ff-a281-e33bb624b683">
 
 ### About Application
 Currencies is an iOS mobile app developed with Swift and SwiftUI in Xcode. Simply enter an amount, choose your currencies, and get real-time conversion rates at your fingertips. Ideal for travelers and finance enthusiasts alike, this app ensures you have the latest currency information quickly and easily.
 
-<img width="1200" alt="browse" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/52435833-8377-4e5f-b75d-5e56f030b529">
+<img width="1200" alt="browse" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/63ed9d6b-9e2f-400b-9812-09d646ce2511">
 
 ### Convert Your Amount
 <img width="1200" alt="convert" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/f6028734-0cc9-4b0c-8718-8c7afd5c8169">
 
 ### Choose Your Currency Base
-<img width="1200" alt="base" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/428dcc27-aefd-45a6-8cbe-052abdb1e103">
+<img width="1200" alt="base" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/380d282c-88b1-4437-aee0-5549764a7c12">
 
 ### Display Preferences
 <img width="1200" alt="mode" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/0ecb5539-614e-44f0-87fa-4d71cd632a3f">
 
 ### Contact
-
 I'm always open to questions, suggestions and comments. If you have any questions or need assistance, feel free to contact me at [nicktheodoridiscontact@gmail.com](mailto:nicktheodoridiscontact@gmail.com) or through my GitHub account.
 
 ### Socials
