@@ -17,12 +17,12 @@ struct TabNavigationView: View {
         TabView{
             ExchangesView()
                 .tabItem(){
-                    Image(systemName: "globe")
+                    Image(systemName: "arrow.2.circlepath")
                     Text("Exchanges")
                 }
             ConverterView()
                 .tabItem(){
-                    Image(systemName: "arrow.triangle.2.circlepath")
+                    Image(systemName: "arrow.right.arrow.left.circle")
                     Text("Converter")
                 }
             SettingsView()
