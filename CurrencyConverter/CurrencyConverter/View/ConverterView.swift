@@ -21,6 +21,8 @@ struct ConverterView: View {
     
     let currencyCodes = Array(CurrencyCodes.conversionRates.keys).sorted()
     
+    @State private var isLoading = false
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -65,13 +67,28 @@ struct ConverterView: View {
                 
             }
             .navigationTitle("Converter")
-            .onChange(of: selectedBase) { convertCurrency() }
-            .onChange(of: selectedTarget) { convertCurrency() }
-            .onChange(of: amount) { convertCurrency() }
+            .onChange(of: selectedBase) { newValue in
+                Task {
+                    await fetchConversionRates()
+                }
+            }
+            .onChange(of: selectedTarget) { newValue in
+                Task {
+                    await fetchConversionRates()
+                }
+            }
+            .onChange(of: amount) { newValue in
+                convertCurrency()
+            }
             .task {
-                await pairConversionViewModel.fetchPairConversion(base: selectedBase, target: selectedTarget)
+                await fetchConversionRates()
             }
         }
+    }
+    
+    func fetchConversionRates() async {
+        await pairConversionViewModel.fetchPairConversion(base: selectedBase, target: selectedTarget)
+        convertCurrency()
     }
     
     func convertCurrency() {
