@@ -16,6 +16,9 @@ Currencies is an iOS mobile app developed with Swift and SwiftUI in Xcode. Simpl
 ### Display Preferences
 <img width="1200" alt="mode" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/0ecb5539-614e-44f0-87fa-4d71cd632a3f">
 
+### Run Application
+https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/6c938010-ca93-4c3d-a5aa-8c260086e62c
+
 ### Project Tools
 <img width="1200" alt="tools" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/81a4ffa9-f31b-4ca2-a99b-0b29e621a1c5">
 
