@@ -1,5 +1,5 @@
 ### Currencies Mobile Application
-<img width="1200" alt="cover" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/f887d14d-8fe6-49ff-a281-e33bb624b683">
+<img width="1200" alt="cover" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/25137d8a-50bf-4d08-b21a-7f076edfe2db">
 
 ### About Application
 Currencies is an iOS mobile app developed with Swift and SwiftUI in Xcode. Simply enter an amount, choose your currencies, and get real-time conversion rates at your fingertips. Ideal for travelers and finance enthusiasts alike, this app ensures you have the latest currency information quickly and easily.
