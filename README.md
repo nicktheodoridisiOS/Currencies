@@ -1,22 +1,23 @@
 ### Currencies Mobile Application
-<img width="1200" alt="cover" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/25137d8a-50bf-4d08-b21a-7f076edfe2db">
+<img width="1200" alt="cover" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/e3ea72bc-9b00-494c-8fa2-b1fb2d000d54">
+
 
 ### About Application
 Currencies is an iOS mobile app developed with Swift and SwiftUI in Xcode. Simply enter an amount, choose your currencies, and get real-time conversion rates at your fingertips. Ideal for travelers and finance enthusiasts alike, this app ensures you have the latest currency information quickly and easily.
 
-<img width="1200" alt="browse" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/de47246d-bcec-4bb7-a96b-e344161f8bf9">
+<img width="1200" alt="browse" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/357a1d2d-2226-4082-a301-a22187cb52e0">
 
 ### Convert Your Amount
-<img width="1200" alt="convert" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/f6028734-0cc9-4b0c-8718-8c7afd5c8169">
+<img width="1200" alt="convert" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/465c7656-abae-4ad4-84f9-ef157c0ad770">
 
 ### Choose Your Currency Base
-<img width="1200" alt="base" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/5892a69d-9885-48cd-9373-c7ef95a64714">
+<img width="1200" alt="base" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/71fef8d9-8fec-4e08-b384-bca31e388f9e">
 
 ### Display Preferences
 <img width="1200" alt="mode" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/0ecb5539-614e-44f0-87fa-4d71cd632a3f">
 
 ### Project Tools
-<img width="1200" alt="tools" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/667a2350-f1f5-4f75-84b3-544b56448349">
+<img width="1200" alt="tools" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/81a4ffa9-f31b-4ca2-a99b-0b29e621a1c5">
 
 ### Contact
 I'm always open to questions, suggestions and comments. If you have any questions or need assistance, feel free to contact me at [nicktheodoridiscontact@gmail.com](mailto:nicktheodoridiscontact@gmail.com) or through my GitHub account.
