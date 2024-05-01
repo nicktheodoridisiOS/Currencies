@@ -67,17 +67,17 @@ struct ConverterView: View {
                 
             }
             .navigationTitle("Converter")
-            .onChange(of: selectedBase) { newValue in
+            .onChange(of: selectedBase) { _, newValue in
                 Task {
                     await fetchConversionRates()
                 }
             }
-            .onChange(of: selectedTarget) { newValue in
+            .onChange(of: selectedTarget) { _, newValue in
                 Task {
                     await fetchConversionRates()
                 }
             }
-            .onChange(of: amount) { newValue in
+            .onChange(of: amount) { _, newValue in
                 convertCurrency()
             }
             .task {
