@@ -5,7 +5,7 @@
 ### About Application
 Currencies is an iOS mobile app developed with Swift and SwiftUI in Xcode. Simply enter an amount, choose your currencies and get real-time conversion rates at your fingertips. Ideal for travelers and finance enthusiasts alike, this app ensures you have the latest currency information quickly and easily.
 
-<img width="1200" alt="browse" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/357a1d2d-2226-4082-a301-a22187cb52e0">
+<img width="1200" alt="browse" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/51614355-a50f-4821-bf1e-2c9316374d5c">
 
 ### Convert Your Amount
 <img width="1200" alt="convert" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/465c7656-abae-4ad4-84f9-ef157c0ad770">
@@ -20,7 +20,14 @@ Currencies is an iOS mobile app developed with Swift and SwiftUI in Xcode. Simpl
 https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/6c938010-ca93-4c3d-a5aa-8c260086e62c
 
 ### Project Tools
-<img width="1200" alt="tools" src="https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/81a4ffa9-f31b-4ca2-a99b-0b29e621a1c5">
+|Xcode|GitHub|Figma|Postman|
+|:---:|:---:|:---:|:---:|
+|<img width="60" alt="mode" src="https://cdn.jim-nielsen.com/macos/512/xcode-2020-11-11.png?rf=1024">|<img width="60" alt="mode" src="https://cdn.jim-nielsen.com/macos/512/github-desktop-2021-05-20.png?rf=1024">|<img width="60" alt="mode" src="https://cdn.jim-nielsen.com/macos/512/figma-2021-05-05.png?rf=1024">|<img width="60" alt="mode" src="https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2F04e04350-1ef9-40d5-893f-aa743ad3435c&w=256&q=75">|
+
+### Programming Stack
+|Swift|SwiftUI
+|:---:|:---:|
+|<img width="60" alt="mode" src="https://developer.apple.com/assets/elements/icons/swift/swift-96x96_2x.png">|<img width="60" alt="mode" src="https://developer.apple.com/assets/elements/icons/swiftui/swiftui-128x128_2x.png">
 
 ### Contact
 I'm always open to questions, suggestions and comments. If you have any questions or need assistance, feel free to contact me at [nicktheodoridiscontact@gmail.com](mailto:nicktheodoridiscontact@gmail.com) or through my GitHub account.
