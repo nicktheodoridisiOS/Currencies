@@ -19,6 +19,47 @@ Currencies is an iOS mobile app developed with Swift and SwiftUI in Xcode. Simpl
 ### Run Application
 https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/6c938010-ca93-4c3d-a5aa-8c260086e62c
 
+
+### API Reference
+For the implementation of the Currencies application, I utilized the [ExchangeRate-API](https://www.exchangerate-api.com/), which allows you to retrieve current currency exchange rates, perform currency conversions and fetch historical exchange rate data.
+
+| Parameter | Type     | Value |Description                |
+| :-------- | :------- | :-------|:------------------------- |
+| `api_key` | `string` |b1b71f168dab8cfbff14f4d3 |**Required** |
+| `currency_base` | `string` |EUR |**Required**|
+
+```https
+  GET https://v6.exchangerate-api.com/v6/b1b71f168dab8cfbff14f4d3/latest/EUR
+```
+
+This will return the exchange rates from your base code to all the other currencies which supported:
+
+```json
+{
+	"result": "success",
+	"documentation": "https://www.exchangerate-api.com/docs",
+	"terms_of_use": "https://www.exchangerate-api.com/terms",
+	"time_last_update_unix": 1585267200,
+	"time_last_update_utc": "Fri, 27 Mar 2020 00:00:00 +0000",
+	"time_next_update_unix": 1585353700,
+	"time_next_update_utc": "Sat, 28 Mar 2020 00:00:00 +0000",
+	"base_code": "USD",
+	"conversion_rates": {
+		"USD": 1,
+		"AUD": 1.4817,
+		"BGN": 1.7741,
+		"CAD": 1.3168,
+		"CHF": 0.9774,
+		"CNY": 6.9454,
+		"EGP": 15.7361,
+		"EUR": 0.9013,
+		"GBP": 0.7679,
+		"...": 7.8536,
+		"...": 28.8929,
+		"ZWL": 14.5678
+	}
+}
+```
 ### Project Tools
 |Xcode|GitHub|Figma|Postman|
 |:---:|:---:|:---:|:---:|
