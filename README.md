@@ -32,7 +32,7 @@ For the implementation of the Currencies application, I utilized the [ExchangeRa
   GET https://v6.exchangerate-api.com/v6/b1b71f168dab8cfbff14f4d3/latest/EUR
 ```
 
-This will return the exchange rates from your base code to all the other currencies which supported:
+This will return (with JSON format) the exchange rates from your base code to all the other currencies which supported:
 
 ```json
 {
