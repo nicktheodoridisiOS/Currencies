@@ -36,28 +36,29 @@ This will return the exchange rates from your base code to all the other currenc
 
 ```json
 {
-	"result": "success",
-	"documentation": "https://www.exchangerate-api.com/docs",
-	"terms_of_use": "https://www.exchangerate-api.com/terms",
-	"time_last_update_unix": 1585267200,
-	"time_last_update_utc": "Fri, 27 Mar 2020 00:00:00 +0000",
-	"time_next_update_unix": 1585353700,
-	"time_next_update_utc": "Sat, 28 Mar 2020 00:00:00 +0000",
-	"base_code": "USD",
-	"conversion_rates": {
-		"USD": 1,
-		"AUD": 1.4817,
-		"BGN": 1.7741,
-		"CAD": 1.3168,
-		"CHF": 0.9774,
-		"CNY": 6.9454,
-		"EGP": 15.7361,
-		"EUR": 0.9013,
-		"GBP": 0.7679,
-		"...": 7.8536,
-		"...": 28.8929,
-		"ZWL": 14.5678
-	}
+ "result":"success",
+ "documentation":"https://www.exchangerate-api.com/docs",
+ "terms_of_use":"https://www.exchangerate-api.com/terms",
+ "time_last_update_unix":1715558401,
+ "time_last_update_utc":"Mon, 13 May 2024 00:00:01 +0000",
+ "time_next_update_unix":1715644801,
+ "time_next_update_utc":"Tue, 14 May 2024 00:00:01 +0000",
+ "base_code":"EUR",
+ "conversion_rates":{
+  "EUR":1,
+  "AED":3.9561,
+  "AFN":77.7023,
+  "ALL":100.5079,
+  "AMD":418.0317,
+  "ANG":1.9283,
+  "AOA":907.8752,
+  "ARS":931.5387,
+  "AUD":1.6318,
+  "...":1.9283,
+  "...":1.8379,
+  "...":28.8929,
+  "ZWL":14.5678
+ }
 }
 ```
 ### Project Tools
