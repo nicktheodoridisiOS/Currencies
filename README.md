@@ -19,6 +19,13 @@ Currencies is an iOS mobile app developed with Swift and SwiftUI in Xcode. Simpl
 ### Run Application
 https://github.com/nicktheodoridisiOS/Currencies/assets/122683142/6c938010-ca93-4c3d-a5aa-8c260086e62c
 
+### Persist Data
+For persistent data like display and currency code the @AppStorage property wrapper was used.
+
+```swift
+@AppStorage("selectedCurrencyBase") var selectedCurrencyCode: String = "EUR"
+@AppStorage("isDarkModeEnabled") var isDarkModeEnabled = false
+```
 
 ### API Reference
 For the implementation of the Currencies application, I utilized the [ExchangeRate-API](https://www.exchangerate-api.com/), which allows you to retrieve current currency exchange rates, perform currency conversions and fetch historical exchange rate data.
