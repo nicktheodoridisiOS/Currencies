@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @AppStorage("selectedCurrencyBase") var selectedCurrencyCode: String = "EUR"
-    @AppStorage("isDarkModeEnabled") private var isDarkModeEnabled = false
+    @AppStorage("isDarkModeEnabled") var isDarkModeEnabled = false
     
     let currencyCodes = Array(CurrencyCodes.conversionRates.keys).sorted()
 
